@@ -6,6 +6,10 @@ This is a simple python script which uses a headless browser to update your publ
 
 ### How to build
 
+1. Install Docker on Raspberry Pi
+2. Clone this repository && change directory
+3. Build the docker image by running the commands:
+
 ```shell
 chmod +x build.sh
 ./build.sh
