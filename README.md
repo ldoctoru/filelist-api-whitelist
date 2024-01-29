@@ -17,6 +17,8 @@ chmod +x build.sh
 
 ## How to run
 
+The recommended way using docker-compose.yml requires docker swarm to create secrets. For a more crude and slightly insecure method, use the Quick and dirty instructions.
+
 ### docker-compose.yml
 
 1. Create secrets:
@@ -42,10 +44,6 @@ services:
 ```
 
 ### Quick and dirty (NOT RECOMMENDED)
-
-There is a reson why have to do this so plese don't keep username/passwords in plain text.
-
-But if you know what you are doing... here you go.
 
 Compose file
 ```
