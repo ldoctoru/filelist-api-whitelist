@@ -114,7 +114,7 @@ check_ip(driver)
 print("Using {} driver. Waiting {} minute for the first check".format(use_driver, interval))
 
 # Schedule the task to run every x minutes
-schedule.every(interval).minutes.do(check_ip, driver)
+schedule.every(10).minutes.do(check_ip, driver)
 
 while True:
     schedule.run_pending()

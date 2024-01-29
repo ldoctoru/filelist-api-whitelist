@@ -7,7 +7,8 @@ This is a simple python script which uses a headless browser to update your publ
 ### How to build
 
 ```shell
-docker build -t raspberry-pi-filelist-api-whitelist .
+chmod +x build.sh
+./build.sh
 ```
 
 ## How to run
