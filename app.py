@@ -8,10 +8,9 @@ import os, sys, schedule, time
 
 username = os.environ.get('FL_USERNAME', None)
 password = os.environ.get('FL_PASSWORD', None)
-chrome_driver = os.environ.get('DRIVER', None)
 interval = os.environ.get('CHECK_INTERVAL', None)
 
-use_driver = "http://" + chrome_driver + ":3000/webdriver"
+use_driver = "local"
 
 if username is None:
     print("Error: FL_USERNAME is not set.")
@@ -42,10 +41,7 @@ def driver_init():
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--headless")
 
-    driver = webdriver.Remote(
-        command_executor=use_driver,
-        options=chrome_options
-    )
+    driver = webdriver.Chrome(options=chrome_options)
 
     driver.implicitly_wait(10)
 
@@ -94,7 +90,7 @@ def set_fl_ip(ip, driver):
     form = driver.find_element(By.NAME, "myForm")
     form.submit()
     
-    driver.save_screenshot("screenshot.png")
+    # driver.save_screenshot("screenshot.png")
     return
 
 def check_ip(driver):
@@ -113,12 +109,12 @@ def check_ip(driver):
 driver = driver_init()
 
 # Trigger an initial check - Be careful. You might get baned for an hour if you have your credentials wrong.
-# check_ip()
+check_ip(driver)
 
 print("Using {} driver. Waiting {} minute for the first check".format(use_driver, interval))
 
 # Schedule the task to run every x minutes
-schedule.every(10).minutes.do(check_ip(driver))
+schedule.every(interval).minutes.do(check_ip, driver)
 
 while True:
     schedule.run_pending()
