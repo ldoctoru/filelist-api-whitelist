@@ -40,6 +40,8 @@ def driver_init():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Chrome(options=chrome_options)
 
@@ -114,7 +116,7 @@ check_ip(driver)
 print("Using {} driver. Waiting {} minute for the first check".format(use_driver, interval))
 
 # Schedule the task to run every x minutes
-schedule.every(10).minutes.do(check_ip, driver)
+schedule.every(int(interval)).minutes.do(check_ip, driver)
 
 while True:
     schedule.run_pending()
