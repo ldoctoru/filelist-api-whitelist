@@ -5,7 +5,6 @@ from urllib.request import urlopen
 from datetime import datetime
 import os, sys, schedule, time
 
-
 username = os.environ.get('FL_USERNAME', None)
 password = os.environ.get('FL_PASSWORD', None)
 interval = os.environ.get('CHECK_INTERVAL', None)
