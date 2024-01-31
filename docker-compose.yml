@@ -6,5 +6,5 @@ services:
       environment:
         - FL_USERNAME=your_username
         - FL_PASSWORD=your_password
-        - CHECK_INTERVAL=10 #anything > 5 minutes
+        - CHECK_INTERVAL=10 #in minutes I suggest putting more than 5 minutes.
       restart: unless-stopped
