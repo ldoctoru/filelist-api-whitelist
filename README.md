@@ -23,7 +23,7 @@ echo "myPassword" | docker secret create my_password -
 version: '2.1'
 services:
     changedetection:
-      image: cristacheda/filelist-api-whitelist
+      image: ldoctoru/filelist-api-whitelist
       container_name: filelist-api-whitelist
       environment:
         - FL_USERNAME=/run/secrets/my_username
@@ -39,7 +39,7 @@ Compose file
 version: '2.1'
 services:
     changedetection:
-      image: cristacheda/filelist-api-whitelist
+      image: ldcotoru/filelist-api-whitelist
       container_name: filelist-api-whitelist
       environment:
         - FL_USERNAME=your_username
