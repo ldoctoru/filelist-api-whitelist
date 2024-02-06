@@ -1,7 +1,7 @@
 version: '2.1'
 services:
     changedetection:
-      image: cristacheda/filelist-api-whitelist:latest
+      image: ldoctoru/filelist-api-whitelist:latest
       container_name: filelist-api-whitelist
       environment:
         - FL_USERNAME=your_username
